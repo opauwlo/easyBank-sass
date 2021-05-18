@@ -1,0 +1,215 @@
+:root {
+  --brightCyan: hsl(192, 70%, 51%);
+  --darkBlue: hsl(233, 26%, 24%);
+  --limeGreen: hsl(136, 65%, 51%);
+  --grayishBlue: hsl(233, 8%, 62%);
+  --lightGrayishBlue: hsl(220, 16%, 96%);
+  --veryLightGray: hsl(0, 0%, 98%);
+  --white: hsl(0, 0%, 100%);
+}
+
+html {
+  font-size: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+  -webkit-transition: background 0.3s ease-in-out, background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  transition: background 0.3s ease-in-out, background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.fa-moon,
+.fa-sun {
+  margin-top: 15px;
+}
+
+.changeTheme {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  bottom: 15px;
+  right: 15px;
+  background: -webkit-gradient(linear, right top, left top, from(var(--limeGreen)), to(var(--brightCyan)));
+  background: linear-gradient(to left, var(--limeGreen), var(--brightCyan));
+  color: var(--white);
+  border: 0;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 25px;
+  -webkit-transition: -webkit-transform 50ms ease-in-out;
+  transition: -webkit-transform 50ms ease-in-out;
+  transition: transform 50ms ease-in-out;
+  transition: transform 50ms ease-in-out, -webkit-transform 50ms ease-in-out;
+}
+
+.changeTheme:hover, .changeTheme :focus {
+  cursor: pointer;
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+  outline: 0;
+}
+
+.light {
+  --brightCyan: hsl(192, 70%, 51%);
+  --darkBlue: hsl(233, 26%, 24%);
+  --limeGreen: hsl(136, 65%, 51%);
+  --grayishBlue: hsl(233, 8%, 62%);
+  --lightGrayishBlue: hsl(220, 16%, 96%);
+  --veryLightGray: hsl(0, 0%, 98%);
+  --white: hsl(0, 0%, 100%);
+}
+
+.light .fa-sun {
+  display: none;
+}
+
+.dark {
+  --brightCyan: hsl(192, 12%, 60%);
+  --darkBlue: rgb(163, 166, 187);
+  --limeGreen: rgb(187, 202, 191);
+  --grayishBlue: #222831;
+  --lightGrayishBlue: #393e46;
+  --veryLightGray: #00adb5;
+  --white: #eeeeee;
+}
+
+.dark .fa-moon {
+  display: none;
+}
+
+.dark img {
+  -webkit-filter: brightness(50);
+          filter: brightness(50);
+}
+
+body {
+  background-color: var(--lightGrayishBlue);
+  font-family: 'Public Sans', sans-serif;
+  font-size: 1.125rem;
+  font-weight: 300;
+  line-height: 1.3;
+  margin: 0;
+  padding: 0;
+}
+
+.button {
+  background: -webkit-gradient(linear, right top, left top, from(var(--limeGreen)), to(var(--brightCyan)));
+  background: linear-gradient(to left, var(--limeGreen), var(--brightCyan));
+  border: 0;
+  border-radius: 50px;
+  color: var(--white);
+  cursor: pointer;
+  padding: 0.875rem 2.1875rem;
+}
+
+a, a:visited, a:hover {
+  text-decoration: none;
+}
+
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.flex-jc-sb {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.flex-jc-c {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.flex-ai-c {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media (max-width: 63.935em) {
+  .hide-for-mobile {
+    display: none;
+  }
+}
+
+@media (min-width: 64em) {
+  .hide-for-desktop {
+    display: none;
+  }
+}
+
+.header nav {
+  padding: 1.0625rem 1.5rem;
+}
+
+.header__logo img {
+  display: block;
+  width: 8.8125rem;
+  height: 1.375rem;
+}
+
+.header__menu > span {
+  background-color: var(--darkBlue);
+  display: block;
+  height: 0.125rem;
+  width: 1.625rem;
+}
+
+.header__menu > span:not(:last-child) {
+  margin-bottom: 5px;
+}
+
+.header__links > a {
+  position: relative;
+  color: var(--darkBlue);
+  font-size: 0.875rem;
+  -webkit-transition: color 300ms ease-in-out;
+  transition: color 300ms ease-in-out;
+}
+
+.header__links > a::before {
+  background: -webkit-gradient(linear, right top, left top, from(var(--limeGreen)), to(var(--brightCyan)));
+  background: linear-gradient(to left, var(--limeGreen), var(--brightCyan));
+  bottom: -30px;
+  content: "";
+  display: block;
+  height: 5px;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  -webkit-transition: opacity 350ms ease-in;
+  transition: opacity 350ms ease-in;
+}
+
+.header__links > a:hover {
+  color: var(--darkBlue);
+  font-weight: 400;
+}
+
+.header__links > a:hover::before {
+  opacity: 1;
+}
+
+.header__links > a:not(:last-child) {
+  margin-right: 32px;
+}
+
+.header__cte {
+  font-size: 0.875rem;
+  font-weight: 400;
+  -webkit-transition: opacity 300ms ease-in-out;
+  transition: opacity 300ms ease-in-out;
+}
+
+.header__cte:hover {
+  opacity: 0.75;
+}
+/*# sourceMappingURL=styles.css.map */

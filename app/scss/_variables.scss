@@ -1,0 +1,29 @@
+//colors
+//primary:
+:root {
+--brightCyan: hsl(192, 70%, 51%);
+--darkBlue: hsl(233, 26%, 24%);
+--limeGreen: hsl(136, 65%, 51%);
+  
+  //neutral: 
+--grayishBlue: hsl(233, 8%, 62%);
+--lightGrayishBlue: hsl(220, 16%, 96%);
+--veryLightGray: hsl(0, 0%, 98%);
+--white: hsl(0, 0%, 100%);
+}
+
+$fontSize: (
+  "sm": 0.875rem,
+  "md": 1.125rem
+);
+@function size ($key) {
+  @return map-get($fontSize, $key);
+}
+$fontWeight: (
+  "light": 300,
+  "normal": 400,
+  "bold": 700
+);
+@function weight ($key) {
+  @return map-get($fontWeight, $key);
+}
