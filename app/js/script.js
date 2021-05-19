@@ -19,3 +19,16 @@ function toggleTheme() {
 }
 
 document.getElementById("themeButton").onclick = toggleTheme;
+
+// hamburguer menu 
+const mobileMenu = document.querySelector('#mobileMenu');
+mobileMenu.addEventListener('click', function () {
+  event.preventDefault();
+  if (mobileMenu.classList.contains('open')) {
+    mobileMenu.classList.remove('open');
+    
+  } else {
+    mobileMenu.classList.add('open');
+
+  }
+});
