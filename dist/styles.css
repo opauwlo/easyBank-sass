@@ -10,13 +10,87 @@
   --white: hsl(0, 0%, 100%);
 }
 
+.has-fade {
+  visibility: hidden;
+}
+
+@-webkit-keyframes fade-in {
+  from {
+    visibility: hidden;
+    opacity: 0;
+  }
+  1% {
+    visibility: visible;
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    visibility: hidden;
+    opacity: 0;
+  }
+  1% {
+    visibility: visible;
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  -webkit-animation: fade-in 200ms ease-in-out forwards;
+          animation: fade-in 200ms ease-in-out forwards;
+}
+
+@-webkit-keyframes fade-out {
+  from {
+    visibility: visible;
+    opacity: 1;
+  }
+  99% {
+    visibility: hidden;
+    opacity: 0;
+  }
+  to {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    visibility: visible;
+    opacity: 1;
+  }
+  99% {
+    visibility: hidden;
+    opacity: 0;
+  }
+  to {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
+.fade-out {
+  -webkit-animation: fade-out 300ms ease-in-out forwards;
+          animation: fade-out 300ms ease-in-out forwards;
+}
+
 html {
   font-size: 100%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   -webkit-box-sizing: inherit;
           box-sizing: inherit;
 }
@@ -45,7 +119,8 @@ html {
   transition: transform 50ms ease-in-out, -webkit-transform 50ms ease-in-out;
 }
 
-.changeTheme:hover, .changeTheme :focus {
+.changeTheme:hover,
+.changeTheme :focus {
   cursor: pointer;
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
@@ -88,7 +163,7 @@ html {
 
 body {
   background-color: var(--lightGrayishBlue);
-  font-family: 'Public Sans', sans-serif;
+  font-family: "Public Sans", sans-serif;
   font-size: 1.125rem;
   font-weight: 300;
   line-height: 1.3;
@@ -106,8 +181,15 @@ body {
   padding: 0.875rem 2.1875rem;
 }
 
-a, a:visited, a:hover {
+a,
+a:visited,
+a:hover {
   text-decoration: none;
+}
+
+.container {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 
 .flex {
@@ -146,17 +228,47 @@ a, a:visited, a:hover {
   }
 }
 
+.header.open .overlay {
+  display: block;
+}
+
+.header.open .header__toggle > span:first-child {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.header.open .header__toggle > span:nth-child(2) {
+  opacity: 0;
+}
+
+.header.open .header__toggle > span:last-child {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.header .overlay {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(var(--darkBlue)), to(transparent));
+  background-image: linear-gradient(var(--darkBlue), transparent);
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  position: fixed;
+  right: 0;
+  top: 3.75rem;
+}
+
 .header nav {
-  padding: 1.0625rem 1.5rem;
+  padding-top: 1.0625rem;
+  padding-bottom: 1.0625rem;
 }
 
 .header__logo img {
   display: block;
-  width: 8.8125rem;
   height: 1.375rem;
+  width: 8.8125rem;
 }
 
-.header__menu > span {
+.header__toggle > span {
   background-color: var(--darkBlue);
   display: block;
   height: 0.125rem;
@@ -167,28 +279,33 @@ a, a:visited, a:hover {
   width: 1.625rem;
 }
 
-.header__menu > span:not(:last-child) {
+.header__toggle > span:not(:last-child) {
   margin-bottom: 5px;
 }
 
-.header__menu.open > span:first-child {
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
+.header__menu {
+  background: var(--white);
+  border-radius: 6px;
+  margin-top: 1.6rem;
+  padding: 1.625rem;
+  position: absolute;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: calc(100% - 3rem);
+  left: 50%;
 }
 
-.header__menu.open > span:nth-child(2) {
-  opacity: 0;
-}
-
-.header__menu.open > span:last-child {
-  -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
+.header__menu a {
+  color: var(--darkBlue);
+  display: block;
+  padding: 0.625rem;
+  text-align: center;
 }
 
 .header__links > a {
-  position: relative;
   color: var(--darkBlue);
   font-size: 0.875rem;
+  position: relative;
   -webkit-transition: color 300ms ease-in-out;
   transition: color 300ms ease-in-out;
 }

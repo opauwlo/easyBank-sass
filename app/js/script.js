@@ -22,13 +22,18 @@ document.getElementById("themeButton").onclick = toggleTheme;
 
 // hamburguer menu 
 const mobileMenu = document.querySelector('#mobileMenu');
+const header = document.querySelector('.header');
+const overlay = document.querySelector('.overlay');
 mobileMenu.addEventListener('click', function () {
   event.preventDefault();
-  if (mobileMenu.classList.contains('open')) {
-    mobileMenu.classList.remove('open');
+  if (header.classList.contains('open')) {
+    header.classList.remove('open');
+    overlay.classList.remove('fade-in');
+    overlay.classList.add('fade-out');
     
   } else {
-    mobileMenu.classList.add('open');
-
+    header.classList.add('open');
+    overlay.classList.remove('fade-out');
+    overlay.classList.add('fade-in');
   }
 });

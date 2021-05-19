@@ -1,49 +1,93 @@
 .header {
- nav {
-   padding: 1.0625rem 1.5rem;
+  &.open {
+    .overlay {
+      display: block;
+    }
 
- }
+    .header__toggle {
+      >span:first-child {
+        transform: rotate(45deg);
+      }
+
+      >span:nth-child(2) {
+        opacity: 0;
+      }
+
+      >span:last-child {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+
+  .overlay {
+    background-image: linear-gradient(var(--darkBlue), transparent);
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    position: fixed;
+    right: 0;
+    top: 3.75rem;
+  }
+
+  nav {
+    padding-top: 1.0625rem;
+    padding-bottom: 1.0625rem;
+  }
+
   &__logo {
     img {
       display: block;
-      width: 8.8125rem;
       height: 1.375rem;
+      width: 8.8125rem;
     }
-  
   }
-  &__menu { //mobile menu
-    > span {
+
+  &__toggle {
+
+    //mobile toggle
+    >span {
       background-color: var(--darkBlue);
       display: block;
       height: 0.125rem;
       transition: all 300ms ease-in-out;
       transform-origin: 3px 1px;
       width: 1.625rem;
-      &:not(:last-child){
+
+      &:not(:last-child) {
         margin-bottom: 5px;
       }
     }
-    &.open {
-      > span:first-child {
-        transform: rotate(45deg);
-      }
-      > span:nth-child(2) {
-        opacity: 0;
-      }
-      > span:last-child {
-        transform: rotate(-45deg);
-      }
+  }
+
+  &__menu {
+    background: var(--white);
+    border-radius: 6px;
+    margin-top: 1.6rem;
+    padding: 1.625rem;
+    position: absolute;
+    transform: translateX(-50%);
+    width: calc(100% - 3rem);
+    left: 50%;
+
+    a {
+      color: var(--darkBlue);
+      display: block;
+      padding: 0.625rem;
+      text-align: center;
     }
   }
+
   &__links {
-    > a {
-      position: relative;
+    >a {
       color: var(--darkBlue);
       font-size: size("sm");
+      position: relative;
       transition: color 300ms ease-in-out;
 
       &::before {
-        background: linear-gradient(to left, var(--limeGreenButton), var(--brightCyanButton));
+        background: linear-gradient(to left,
+            var(--limeGreenButton),
+            var(--brightCyanButton));
         bottom: -30px;
         content: "";
         display: block;
@@ -53,44 +97,30 @@
         position: absolute;
         right: 0;
         transition: opacity 350ms ease-in;
-
       }
+
       &:hover {
         color: var(--darkBlue);
         font-weight: weight("normal");
+
         &::before {
           opacity: 1;
         }
       }
+
       &:not(:last-child) {
         margin-right: 32px;
-
       }
     }
   }
+
   &__cte {
     font-size: size("sm");
     font-weight: weight("normal");
     transition: opacity 300ms ease-in-out;
+
     &:hover {
       opacity: 0.75;
     }
   }
-  
 }
-// .themeChange {
-//   position: fixed;
-  
-//   &__theme a{
-
-//   position: absolute;
-//   right: 0;
-//   bottom: 0;
-//   float: right;
-
-    
-
-  
-    
-//   }
-// }
