@@ -74,6 +74,10 @@
       display: block;
       padding: 0.625rem;
       text-align: center;
+      &:hover {
+        color: var(--grayishBlue);
+        transform: scale(1.1);
+      }
     }
   }
 
