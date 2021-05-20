@@ -15,18 +15,18 @@ html {
 }
 
 .changeTheme {
-  position: fixed;
-  width: 50px;
-  height: 50px;
-  bottom: 20px;
-  right: 20px;
   background: linear-gradient(to left, var(--limeGreen), var(--brightCyan));
-  color: var(--white);
   border: 0;
   border-radius: 50%;
-  text-align: center;
+  bottom: 20px;
+  color: var(--white);
   font-size: 30px;
+  height: 50px;
+  position: fixed;
+  right: 20px;
+  text-align: center;
   transition: transform 50ms ease-in-out;
+  width: 50px;
 
   &:hover,
   :focus {
@@ -42,10 +42,17 @@ html {
     --brightCyan: hsl(192, 12%, 60%);
     --darkBlue: rgb(163, 166, 187);
     --limeGreen: rgb(187, 202, 191);
+    > a {
+      .fa-moon {
+        display: none;
+        content: none;
+      }
+      .fa-sun {
+        opacity: 1;
+      }
 
-    .fa-moon {
-      display: none;
     }
+    
 
     //neutral:
     --grayishBlue: #222831;
@@ -58,7 +65,9 @@ html {
     }
   }
 }
-
+.fa-sun {
+ opacity: 0;
+}
 @media (prefers-color-scheme: light) {
   .light {
     //primary:
@@ -66,9 +75,10 @@ html {
     --darkBlue: hsl(233, 26%, 24%);
     --limeGreen: hsl(136, 65%, 51%);
 
-    .fa-sun {
-      display: none;
-    }
+  
+    
+
+    
 
     //neutral:
     --grayishBlue: hsl(233, 8%, 62%);
@@ -85,8 +95,10 @@ body {
   font-weight: weight("light");
   line-height: 1.3;
   margin: 0;
-
   padding: 0;
+  &.noscroll {
+    overflow: hidden;
+  }
 }
 
 .button {
