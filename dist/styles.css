@@ -114,6 +114,7 @@ body.noscroll {
   -khtml-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
+  outline: none;
   -webkit-tap-highlight-color: transparent;
   user-select: none;
 }
