@@ -17,7 +17,7 @@
 }
 
 $fontSize: ("sm": 0.875rem,
-  "md": 1.125rem);
+  "md": 1.125rem, "lg": 1.25rem, "xl":3.25rem);
 
 @function size ($key) {
   @return map-get($fontSize, $key);

@@ -25,7 +25,7 @@ html {
 
 .fa-moon,
 .fa-sun {
-  margin-top: 10px;
+  margin-top: 8px;
 }
 
 .changeTheme {
@@ -33,18 +33,18 @@ html {
   background: linear-gradient(to left, var(--limeGreen), var(--brightCyan));
   border: 0;
   border-radius: 50%;
-  bottom: 20px;
+  bottom: 10px;
   color: var(--white);
   font-size: 30px;
-  height: 50px;
+  height: 45px;
   position: fixed;
-  right: 20px;
+  right: 10px;
   text-align: center;
   -webkit-transition: -webkit-transform 50ms ease-in-out;
   transition: -webkit-transform 50ms ease-in-out;
   transition: transform 50ms ease-in-out;
   transition: transform 50ms ease-in-out, -webkit-transform 50ms ease-in-out;
-  width: 50px;
+  width: 45px;
   z-index: 3;
 }
 
@@ -63,7 +63,7 @@ html {
     --limeGreen: rgb(187, 202, 191);
     --grayishBlue: #222831;
     --lightGrayishBlue: #393e46;
-    --veryLightGray: #00adb5;
+    --veryLightGray: #343f3f;
     --white: #eeeeee;
   }
   .dark > a .fa-moon {
@@ -111,6 +111,12 @@ body.noscroll {
   overflow: hidden;
 }
 
+@media (min-width: 64em) {
+  body {
+    font-size: 1.125rem;
+  }
+}
+
 h1, h2, h3 {
   margin-top: 0;
 }
@@ -133,7 +139,16 @@ h1, h2, h3 {
   border-radius: 50px;
   color: var(--white);
   cursor: pointer;
+  display: inline-block;
   padding: 0.875rem 2.1875rem;
+  font-size: 0.875rem;
+  font-weight: 400;
+  -webkit-transition: opacity 300ms ease-in-out;
+  transition: opacity 300ms ease-in-out;
+}
+
+.button:hover {
+  opacity: 0.75;
 }
 
 a,
@@ -143,8 +158,41 @@ a:hover {
 }
 
 .container {
+  margin: 0 auto;
+  max-width: 69.375rem;
+}
+
+.container--pall {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
+  padding-top: 2.25rem;
+  padding-bottom: 2.25rem;
+}
+
+.container--px {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.container--py {
+  padding-top: 2.25rem;
+  padding-bottom: 2.25rem;
+}
+
+.container--pt {
+  padding-top: 2.25rem;
+}
+
+.container--pr {
+  padding-right: 1.5rem;
+}
+
+.container--pb {
+  padding-bottom: 2.25rem;
+}
+
+.container--pl {
+  padding-left: 1.5rem;
 }
 
 .flex {
@@ -375,15 +423,19 @@ a:hover {
   margin-right: 32px;
 }
 
-.header__cte {
-  font-size: 0.875rem;
-  font-weight: 400;
-  -webkit-transition: opacity 300ms ease-in-out;
-  transition: opacity 300ms ease-in-out;
+.hero {
+  background-color: var(--veryLightGray);
 }
 
-.header__cte:hover {
-  opacity: 0.75;
+@media (min-width: 64em) {
+  .hero .container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
 }
 
 .hero__img {
@@ -395,11 +447,35 @@ a:hover {
   position: relative;
 }
 
+@media (min-width: 64em) {
+  .hero__img {
+    background-image: none;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    height: 41rem;
+    -webkit-box-ordinal-group: 4;
+        -ms-flex-order: 3;
+            order: 3;
+  }
+}
+
 .hero__img::before {
-  background-image: url("/images/image-mockups.png");
+  background-image: url("/images/bg-intro-desktop.svg");
   background-position: center bottom;
   background-repeat: no-repeat;
   background-size: 89%;
+  content: "";
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
+
+.hero__img::after {
+  background-image: url("/images/image-mockups.png");
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: 100%;
   content: "";
   height: 100%;
   position: absolute;
@@ -410,6 +486,18 @@ a:hover {
   text-align: center;
 }
 
+@media (min-width: 64em) {
+  .hero__txt {
+    text-align: left;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+  }
+}
+
 .hero__txt h1 {
   color: var(--darkBlue);
   font-size: 2.31rem;
@@ -418,8 +506,14 @@ a:hover {
   margin-bottom: 1.5rem;
 }
 
+@media (min-width: 64em) {
+  .hero__txt h1 {
+    font-size: 3.25rem;
+  }
+}
+
 .hero__txt p {
   line-height: 1.5;
-  margin: 2.5rem;
+  margin-bottom: 2.5rem;
 }
 /*# sourceMappingURL=styles.css.map */

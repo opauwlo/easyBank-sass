@@ -120,13 +120,4 @@
     }
   }
 
-  &__cte {
-    font-size: size("sm");
-    font-weight: weight("normal");
-    transition: opacity 300ms ease-in-out;
-
-    &:hover {
-      opacity: 0.75;
-    }
-  }
 }
