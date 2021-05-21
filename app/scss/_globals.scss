@@ -27,6 +27,7 @@ html {
   text-align: center;
   transition: transform 50ms ease-in-out;
   width: 50px;
+  z-index: 3;
 
   &:hover,
   :focus {
@@ -52,8 +53,6 @@ html {
       }
 
     }
-    
-
     //neutral:
     --grayishBlue: #222831;
     --lightGrayishBlue: #393e46;
@@ -65,6 +64,7 @@ html {
     }
   }
 }
+
 .fa-sun {
  opacity: 0;
 }
@@ -74,12 +74,6 @@ html {
     --brightCyan: hsl(192, 70%, 51%);
     --darkBlue: hsl(233, 26%, 24%);
     --limeGreen: hsl(136, 65%, 51%);
-
-  
-    
-
-    
-
     //neutral:
     --grayishBlue: hsl(233, 8%, 62%);
     --lightGrayishBlue: hsl(220, 16%, 96%);
@@ -96,9 +90,13 @@ body {
   line-height: 1.3;
   margin: 0;
   padding: 0;
+  transition: background 0.2s linear;
   &.noscroll {
     overflow: hidden;
   }
+}
+h1, h2, h3 {
+  margin-top: 0;
 }
 .noSelect {
   -webkit-touch-callout: none;
